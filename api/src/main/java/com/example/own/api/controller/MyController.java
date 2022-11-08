@@ -1,6 +1,6 @@
 package com.example.own.api.controller;
 
-import com.example.own.core.entity.RecordDO;
+import com.example.own.core.mongo.entity.RecordDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
