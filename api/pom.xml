@@ -13,10 +13,17 @@
     <dependencies>
 
 
+        <!--当前项目的module start-->
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+        <!--当前项目的module end-->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>

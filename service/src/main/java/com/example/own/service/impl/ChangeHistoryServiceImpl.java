@@ -25,4 +25,10 @@ public class ChangeHistoryServiceImpl implements IChangeHistoryService {
 
         changeHistoryDao.insertChangeHistoryList(changeHistoryDOCollection);
     }
+
+    @Override
+    public void insertChangeHistory(ChangeHistoryDTO changeHistoryDTO) {
+        ChangeHistoryDO changeHistoryDO = CopyObjectUtils.copyAtoB(changeHistoryDTO, ChangeHistoryDO.class);
+        changeHistoryDao.insertChangeHistory(changeHistoryDO);
+    }
 }

@@ -8,4 +8,6 @@ public interface IChangeHistoryService {
 
     void insertChangeHistoryList(Collection<ChangeHistoryDTO> changeHistoryDTOCollection);
 
+    void insertChangeHistory(ChangeHistoryDTO changeHistoryDTO);
+
 }

@@ -8,4 +8,6 @@ public interface IChangeHistoryDao {
 
 
     void insertChangeHistoryList(Collection<ChangeHistoryDO> changeHistoryDOCollection);
+
+    void insertChangeHistory(ChangeHistoryDO changeHistoryDO);
 }

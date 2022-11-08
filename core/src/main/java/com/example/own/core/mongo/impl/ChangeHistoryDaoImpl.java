@@ -21,4 +21,9 @@ public class ChangeHistoryDaoImpl extends BaseMongoDaoImpl<ChangeHistoryDO> impl
         mongoTemplate.insertAll(changeHistoryDOCollection);
 
     }
+
+    @Override
+    public void insertChangeHistory(ChangeHistoryDO changeHistoryDO) {
+        mongoTemplate.insert(changeHistoryDO);
+    }
 }
