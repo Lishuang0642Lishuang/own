@@ -6,10 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "multi_lang_change_history")
 public class ChangeHistoryDO  extends BaseMongoDO {
 
-    private static final long serialVersionUID = 8599928241933853431L;
-
-    private String id;
-
+    private static final long serialVersionUID = 4185529965938438677L;
     /**
      * 来源
      */
@@ -46,13 +43,7 @@ public class ChangeHistoryDO  extends BaseMongoDO {
     @Field
     private String editor;
 
-
-    /**
-     * 内部私有，不反馈<br/>
-     * 默认：0，release：1,其他：-1
-     */
-    @Field
-    private Integer env;
+    private Integer status;
 
     /**
      * 插入时间
@@ -65,4 +56,94 @@ public class ChangeHistoryDO  extends BaseMongoDO {
      */
     @Field
     private String tuyaEnv;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(String sourceId) {
+        this.sourceId = sourceId;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public String getOperateType() {
+        return operateType;
+    }
+
+    public void setOperateType(String operateType) {
+        this.operateType = operateType;
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
+
+    public Long getGmtModify() {
+        return gmtModify;
+    }
+
+    public void setGmtModify(Long gmtModify) {
+        this.gmtModify = gmtModify;
+    }
+
+    public String getTuyaEnv() {
+        return tuyaEnv;
+    }
+
+    public void setTuyaEnv(String tuyaEnv) {
+        this.tuyaEnv = tuyaEnv;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "ChangeHistoryDO{" +
+                "source='" + source + '\'' +
+                ", sourceId='" + sourceId + '\'' +
+                ", code='" + code + '\'' +
+                ", lastUpdated='" + lastUpdated + '\'' +
+                ", operateType='" + operateType + '\'' +
+                ", editor='" + editor + '\'' +
+                ", gmtModify=" + gmtModify +
+                ", tuyaEnv='" + tuyaEnv + '\'' +
+                '}';
+    }
 }

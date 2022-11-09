@@ -40,6 +40,10 @@ public class ChangeHistoryDTO implements Serializable {
      */
     private String editor;
 
+    /**
+     * 状态
+     */
+    private Integer status;
 
     /**
      * 内部私有，不反馈<br/>
@@ -139,5 +143,13 @@ public class ChangeHistoryDTO implements Serializable {
 
     public void setTuyaEnv(String tuyaEnv) {
         this.tuyaEnv = tuyaEnv;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

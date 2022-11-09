@@ -1,6 +1,7 @@
 package com.example.own.api.controller;
 
 import com.example.own.service.IChangeHistoryService;
+import com.example.own.service.IMongoAggregateService;
 import com.example.own.service.dto.ChangeHistoryDTO;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +18,13 @@ import java.util.List;
 @Controller
 public class MongoController {
 
+
+
     @Resource
     IChangeHistoryService changeHistoryService;
+
+    @Resource
+    IMongoAggregateService mongoAggregateService;
 
     @ResponseBody
     @RequestMapping("/addChangeHistoryList")
@@ -33,12 +39,16 @@ public class MongoController {
             changeHistoryDTO.setEditor("editor");
             changeHistoryDTO.setOperateType("operateType" + i/10);
             changeHistoryDTO.setTuyaEnv("pre");
+            changeHistoryDTO.setStatus(i);
             changeHistoryDTOList.add(changeHistoryDTO);
         }
 
         changeHistoryService.insertChangeHistoryList(changeHistoryDTOList);
     }
 
+
+
+    //1、用postman调用的话，如果选post模式，在body里面放内容，需要添加  @ResponseBody
     @ResponseBody
     @RequestMapping("/addChangeHistory")
     public void addChangeHistory(@RequestBody String history) {
@@ -47,4 +57,12 @@ public class MongoController {
 
         changeHistoryService.insertChangeHistory(changeHistoryDTO);
     }
+
+    @ResponseBody
+    @RequestMapping("/aggregate")
+    public void aggregate() {
+        mongoAggregateService.aggregate();
+    }
+
+
 }

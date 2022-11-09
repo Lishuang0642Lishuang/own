@@ -21,10 +21,6 @@ public class BaseMongoDO implements Serializable {
      */
     private String env;
 
-    /**
-     * 状态标志(0-已删除,1-生效)
-     */
-    private Integer status;
 
     /**
      * 创建时间
@@ -74,13 +70,6 @@ public class BaseMongoDO implements Serializable {
         this.env = env;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 
     public Long getGmtCreate() {
         return gmtCreate;

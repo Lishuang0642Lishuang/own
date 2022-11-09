@@ -13,6 +13,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
+
+
+/**
+ * @desc:
+ * 1、CopyObjectUtils需要用到get set方法，不然的话，就转化不过来
+ * 2、需要注意类中包含的子类的问题，有时候转化不过来
+ * @author: 英布
+ * @date: 2022/11/8 11:33 下午
+ *
+ */
+
 public class CopyObjectUtils {
 
     private CopyObjectUtils() {

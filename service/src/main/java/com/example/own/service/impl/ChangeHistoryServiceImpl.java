@@ -8,7 +8,10 @@ import com.example.own.service.dto.ChangeHistoryDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service("changeHistoryService")
 public class ChangeHistoryServiceImpl implements IChangeHistoryService {
