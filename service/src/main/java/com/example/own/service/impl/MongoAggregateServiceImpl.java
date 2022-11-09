@@ -26,7 +26,7 @@ public class MongoAggregateServiceImpl implements IMongoAggregateService {
     MongoTemplate mongoTemplate;
 
     @Override
-    public void aggregate() {
+    public void aggregateDuplication() {
 
         List<AggregationOperation> operations = new ArrayList<>();
         GroupOperation group =

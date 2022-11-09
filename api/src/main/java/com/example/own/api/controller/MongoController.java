@@ -61,7 +61,7 @@ public class MongoController {
     @ResponseBody
     @RequestMapping("/aggregate")
     public void aggregate() {
-        mongoAggregateService.aggregate();
+        mongoAggregateService.aggregateDuplication();
     }
 
 

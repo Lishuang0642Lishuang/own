@@ -11,5 +11,5 @@ public interface IMongoAggregateService {
     /**
      * 1、根据两个字段的组合来进行查重，并获取id的集合
      */
-    void aggregate();
+    void aggregateDuplication();
 }
