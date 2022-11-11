@@ -1,4 +1,4 @@
-package com.example.own.service.dto;
+package com.example.own.service.record.dto;
 
 import java.io.Serializable;
 

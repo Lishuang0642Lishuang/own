@@ -1,6 +1,6 @@
-package com.example.own.service;
+package com.example.own.service.record;
 
-import com.example.own.service.dto.ChangeHistoryDTO;
+import com.example.own.service.record.dto.ChangeHistoryDTO;
 
 import java.util.Collection;
 

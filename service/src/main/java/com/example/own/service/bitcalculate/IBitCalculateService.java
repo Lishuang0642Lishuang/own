@@ -1,4 +1,4 @@
-package com.example.own.service;
+package com.example.own.service.bitcalculate;
 
 public interface IBitCalculateService {
 

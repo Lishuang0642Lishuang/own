@@ -1,7 +1,7 @@
-package com.example.own.service.impl;
+package com.example.own.service.mongo.impl;
 
-import com.example.own.service.IMongoAggregateService;
-import com.example.own.service.vo.ChangeHistoryVO;
+import com.example.own.service.mongo.IMongoAggregateService;
+import com.example.own.service.record.vo.ChangeHistoryVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;

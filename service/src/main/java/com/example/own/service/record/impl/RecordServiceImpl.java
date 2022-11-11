@@ -1,10 +1,10 @@
-package com.example.own.service.impl;
+package com.example.own.service.record.impl;
 
 import com.example.own.common.utils.CopyObjectUtils;
 import com.example.own.core.mongo.IRecordMongoDao;
 import com.example.own.core.mongo.entity.RecordDO;
-import com.example.own.service.IRecordService;
-import com.example.own.service.dto.RecordDTO;
+import com.example.own.service.record.IRecordService;
+import com.example.own.service.record.dto.RecordDTO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

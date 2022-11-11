@@ -1,7 +1,7 @@
-package com.example.own.service.impl;
+package com.example.own.service.bitcalculate.impl;
 
 
-import com.example.own.service.IBitCalculateService;
+import com.example.own.service.bitcalculate.IBitCalculateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

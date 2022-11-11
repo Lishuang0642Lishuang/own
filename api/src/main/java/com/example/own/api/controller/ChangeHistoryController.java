@@ -1,8 +1,7 @@
 package com.example.own.api.controller;
 
-import com.example.own.service.IChangeHistoryService;
-import com.example.own.service.IMongoAggregateService;
-import com.example.own.service.dto.ChangeHistoryDTO;
+import com.example.own.service.record.IChangeHistoryService;
+import com.example.own.service.record.dto.ChangeHistoryDTO;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

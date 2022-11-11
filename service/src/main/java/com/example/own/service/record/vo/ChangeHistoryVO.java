@@ -1,4 +1,4 @@
-package com.example.own.service.vo;
+package com.example.own.service.record.vo;
 
 
 public class ChangeHistoryVO {

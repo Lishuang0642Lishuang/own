@@ -1,4 +1,4 @@
-package com.example.own.service;
+package com.example.own.service.mongo;
 /**
  * @desc: mongo的一些使用方式
  * @author: 英布
