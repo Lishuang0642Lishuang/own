@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.aggregation.AggregationOperation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.GroupOperation;
 import org.springframework.data.mongodb.core.aggregation.MatchOperation;
+import org.springframework.data.mongodb.core.aggregation.ProjectionOperation;
 import org.springframework.data.mongodb.core.aggregation.SortOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
@@ -50,5 +51,31 @@ public class MongoAggregateServiceImpl implements IMongoAggregateService {
         log.info("list:{}", list);
 
 
+    }
+
+    @Override
+    public void aggregateOnlyCode() {
+
+        List<AggregationOperation> operations = new ArrayList<>();
+
+        SortOperation sortOperation = Aggregation.sort(Sort.Direction.ASC, "status");
+        GroupOperation groupOperation = Aggregation.group("code")
+                .first("_id").as("realId")
+                .first("code").as("code")
+                .first("operateType").as("operateType")
+                .first("editor").as("editor")
+                .first("status").as("status")
+                .first("source").as("source");
+        ProjectionOperation projectionOperation = Aggregation.project("code","editor").and("realId").as("id");
+        operations.add(groupOperation);
+        operations.add(sortOperation);
+        operations.add(projectionOperation);
+        Aggregation aggregation = Aggregation.newAggregation(operations);
+
+
+        AggregationResults<ChangeHistoryVO> results =
+                mongoTemplate.aggregate(aggregation, "multi_lang_change_history", ChangeHistoryVO.class);
+        List<ChangeHistoryVO> list = results.getMappedResults();
+        log.info("list:{}", list);
     }
 }

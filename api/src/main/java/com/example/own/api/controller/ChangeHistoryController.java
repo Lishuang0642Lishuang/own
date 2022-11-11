@@ -16,15 +16,13 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class MongoController {
+public class ChangeHistoryController {
 
 
 
     @Resource
     IChangeHistoryService changeHistoryService;
 
-    @Resource
-    IMongoAggregateService mongoAggregateService;
 
     @ResponseBody
     @RequestMapping("/addChangeHistoryList")
@@ -58,11 +56,7 @@ public class MongoController {
         changeHistoryService.insertChangeHistory(changeHistoryDTO);
     }
 
-    @ResponseBody
-    @RequestMapping("/aggregate")
-    public void aggregate() {
-        mongoAggregateService.aggregateDuplication();
-    }
+
 
 
 }

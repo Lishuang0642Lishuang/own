@@ -17,6 +17,10 @@ public class ChangeHistoryVO {
 
     private Integer total;
 
+    private String operateType;
+
+    private String source;
+
     public String getId() {
         return id;
     }
@@ -71,5 +75,34 @@ public class ChangeHistoryVO {
 
     public void setTotal(Integer total) {
         this.total = total;
+    }
+
+    public String getOperateType() {
+        return operateType;
+    }
+
+    public void setOperateType(String operateType) {
+        this.operateType = operateType;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    @Override
+    public String toString() {
+        return "ChangeHistoryVO{" +
+                "id='" + id + '\'' +
+                ", ids='" + ids + '\'' +
+                ", status=" + status +
+                ", tuyaEnv='" + tuyaEnv + '\'' +
+                ", editor='" + editor + '\'' +
+                ", code='" + code + '\'' +
+                ", total=" + total +
+                '}';
     }
 }
