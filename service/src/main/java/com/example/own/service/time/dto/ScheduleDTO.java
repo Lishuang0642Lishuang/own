@@ -1,4 +1,4 @@
-package com.example.own.common.vo;
+package com.example.own.service.time.dto;
 
 public class ScheduleDTO {
 

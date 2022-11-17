@@ -1,6 +1,5 @@
 package com.example.own.common.utils;
 
-import com.example.own.common.vo.ScheduleDTO;
 import com.example.own.common.vo.TimeZoneIdDifferTimeVO;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -39,7 +38,6 @@ public class DateTimeUtils {
      * @date: 2022/11/17 1:18 上午
      *
      */
-
     public static TimeZoneIdDifferTimeVO getDifferWithTimeZoneId(String timeZoneId1, String timeZoneId2) {
         long currentTimeMillis = System.currentTimeMillis();
         DateTime timeZone1Dt =
@@ -89,31 +87,6 @@ public class DateTimeUtils {
     }
 
 
-    public static void parseTime(ScheduleDTO scheduleDTO, String destTimeZone) {
-
-        String loop = scheduleDTO.getLoops();
-
-        Integer differMinute = getDifferWithTimeZoneIdV2(scheduleDTO.getTimeZoneId(), destTimeZone);
-
-        Integer onMinute = parseTimeToMinute(scheduleDTO.getOn());
-        Integer offMinute = parseTimeToMinute(scheduleDTO.getOff());
-
-        Integer destOnMinute = onMinute - differMinute;
-        Integer destOffMinute = offMinute - differMinute;
-
-        scheduleDTO.setOn(parseMinuteToTime((destOnMinute + DAY_MINUTE) % DAY_MINUTE));
-        scheduleDTO.setOff(parseMinuteToTime((destOffMinute + DAY_MINUTE) % DAY_MINUTE));
-        scheduleDTO.setTimeZoneId(destTimeZone);
-
-        if (destOnMinute < 0) {
-            String newLoop = (loop + loop).substring(1,8);
-            scheduleDTO.setLoops(newLoop);
-        } else if (destOnMinute > DAY_MINUTE) {
-            String newLoop = (loop + loop).substring(6,13);
-            scheduleDTO.setLoops(newLoop);
-        }
-    }
-
     /**
      * 01:30 转化为 90 分钟
      * @param time
@@ -137,27 +110,4 @@ public class DateTimeUtils {
 
     }
 
-
-
-    public static void main(String[] args) {
-
-
-//        TimeZoneIdDifferTimeVO vo =  getDifferWithTimeZoneId("Asia/Shanghai", "Asia/Kolkata");
-//        System.out.println(vo);
-//
-//        Integer integer = getDifferWithTimeZoneIdV2("Asia/Shanghai", "Asia/Kolkata");
-//        System.out.println(integer);
-
-        ScheduleDTO scheduleDTO = new ScheduleDTO();
-        scheduleDTO.setLoops("0011001");
-        scheduleDTO.setOff("23:00");
-        scheduleDTO.setOn("22:00");
-        scheduleDTO.setTimeZoneId("Asia/Shanghai");
-
-
-        System.out.println(scheduleDTO);
-        parseTime(scheduleDTO, "Asia/Magadan");
-        System.out.println(scheduleDTO);
-
-    }
 }
