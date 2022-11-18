@@ -30,6 +30,8 @@
         <orika-core.version>1.5.1</orika-core.version>
         <joda-time.version>2.10.10</joda-time.version>
         <lombok.version>1.18.22</lombok.version>
+        <skywalking.version>8.7.0</skywalking.version>
+        <transmittable-thread-local.version>2.11.5</transmittable-thread-local.version>
 
     </properties>
 
@@ -105,7 +107,19 @@
             <version>${joda-time.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-trace -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${skywalking.version}</version>
+        </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${transmittable-thread-local.version}</version>
+        </dependency>
 
 
     </dependencies>
