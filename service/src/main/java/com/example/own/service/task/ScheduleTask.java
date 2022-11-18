@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @desc: 用springboot自带的task功能实现定时任务
@@ -35,10 +36,25 @@ public class ScheduleTask {
         stringList.add("ls1");
         stringList.add("ls2");
         log.info("application start, stringList:{}", stringList);
+        log.info("thread name:{}", Thread.currentThread().getName());
     }
 
+
+    @Async("ownExecutor")
     @Scheduled(cron = "0 */1 * * * ?")
-    public void process() {
+    public void process() throws Exception{
         stringList.forEach(log::info);
+        log.info("process thread name:{}", Thread.currentThread().getName());
+        Thread.sleep(120000L);
+        log.info("process sleep");
+    }
+
+    @Async("ownExecutor")
+    @Scheduled(cron = "0 */1 * * * ?")
+    public void processOther() throws Exception {
+
+        log.info("processOther thread name:{}", Thread.currentThread().getName());
+        Thread.sleep(120000L);
+        log.info("processOther sleep");
     }
 }

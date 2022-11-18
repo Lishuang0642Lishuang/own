@@ -230,9 +230,9 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
 
                 Long startTime = timeCount.remove(String.valueOf(r.hashCode()));
                 long duration = System.currentTimeMillis() - startTime;
-                log.info("tid:{},duration:{},corePoolSize:{},activeCount:{},completed:{},taskCount:{},queue:{},largestPoolSize:{}",
-                        getTraceIdFromTask(r),
-                        duration, coreSize, activeCount, completedTaskCount, taskCount, queueSize, largestPoolSize);
+//                log.info("tid:{},duration:{},corePoolSize:{},activeCount:{},completed:{},taskCount:{},queue:{},largestPoolSize:{}",
+//                        getTraceIdFromTask(r),
+//                        duration, coreSize, activeCount, completedTaskCount, taskCount, queueSize, largestPoolSize);
 //                EventTrace.newGauge(ThreadPoolReporterConstants.THREAD_POOL_STATS)
 //                        .addTag(ThreadPoolReporterConstants.HOST_TAG, HostHelper.getHost())
 //                        .addTag(ThreadPoolReporterConstants.NAME_TAG, threadPoolName)
@@ -276,11 +276,11 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         return executor;
     }
 
-
-    private String getTraceIdFromTask(Runnable r) {
-
-        return TRACE_MAP.get(((TtlRunnable) r).unwrap());
-    }
+//
+//    private String getTraceIdFromTask(Runnable r) {
+//
+//        return TRACE_MAP.get(((TtlRunnable) r).unwrap());
+//    }
 
 
     private void removeTraceId(Runnable r) {
@@ -310,9 +310,9 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
 //        if (!reduceSlidingWindow.slideOverThrehold()) {
 //            return;
 //        }
-        log.info("tid:{},线程池已经进行缩容缩容前corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
+//        log.info("tid:{},线程池已经进行缩容缩容前corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
         setCorePoolSize(corePoolSize / 2 < THREAD_POOL_CORE_MIN_THRESHOLD ? THREAD_POOL_CORE_MIN_THRESHOLD : corePoolSize / 2);
-        log.info("tid:{},线程池已经进行缩容,缩容后corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
+//        log.info("tid:{},线程池已经进行缩容,缩容后corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
     }
 
     private void increaseCoreSize(Runnable r) {
@@ -333,9 +333,9 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
             log.error("核心线程数已经达到100，请检查服务流量是否正常");
             return;
         }
-        log.info("tid:{},线程池已经进行扩容,扩容前corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
+//        log.info("tid:{},线程池已经进行扩容,扩容前corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
         setCorePoolSize(corePoolSize * 2 > THREAD_POOL_CORE_MAX_THRESHOLD ? THREAD_POOL_CORE_MAX_THRESHOLD : corePoolSize * 2);
-        log.info("tid:{},线程池已经进行扩容,扩容后corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
+//        log.info("tid:{},线程池已经进行扩容,扩容后corePoolSize:{}", getTraceIdFromTask(r), corePoolSize);
     }
 
 

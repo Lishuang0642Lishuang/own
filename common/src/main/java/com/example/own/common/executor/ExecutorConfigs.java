@@ -69,7 +69,7 @@ public class ExecutorConfigs {
         //(3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃.
         //(4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
-        taskExecutor.setThreadNamePrefix("ownExecutor-async-thread-");
+        taskExecutor.setThreadNamePrefix("ownExecutor-");
         taskExecutor.setThreadPoolName("ownExecutor");
         return taskExecutor;
     }
