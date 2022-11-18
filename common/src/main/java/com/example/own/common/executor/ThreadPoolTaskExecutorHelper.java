@@ -46,10 +46,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @User: wiam
- * @Date: 2019-09-29
- * @Desc:
- **/
+ * @desc: 1、 java.util.concurrent.FutureTask cannot be cast to com.alibaba.ttl.TtlRunnable
+ * @author: 英布 
+ * @date: 2022/11/18 2:55 下午
+ * 
+ */
+ 
 public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         implements AsyncListenableTaskExecutor {
 
@@ -264,7 +266,7 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
 //                        .addField(ThreadPoolReporterConstants.QUEUE_CURRENT_SIZE, Field.newGaugeField(queueSize)).finish();
                 parameterAdaptive(r);
                 exceptionHandle(r, t);
-                removeTraceId(r);
+//                removeTraceId(r);
             }
         };
 
@@ -283,10 +285,10 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
 //    }
 
 
-    private void removeTraceId(Runnable r) {
-
-        TRACE_MAP.remove(((TtlRunnable) r).unwrap());
-    }
+//    private void removeTraceId(Runnable r) {
+//
+//        TRACE_MAP.remove(((TtlRunnable) r).unwrap());
+//    }
 
     private void parameterAdaptive(Runnable r) {
         if (!adaptiveEnable) {

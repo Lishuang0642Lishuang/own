@@ -6,6 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+
+/**
+ * @desc: 1、spring task必须要@Async才能异步执行
+ * @author: 英布
+ * @date: 2022/11/18 2:53 下午
+ *
+ */
+
 //@EnableApolloConfig()
 @EnableScheduling
 @EnableAsync
