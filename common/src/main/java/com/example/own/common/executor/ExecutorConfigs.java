@@ -1,6 +1,5 @@
-package com.example.own.service.executor;
+package com.example.own.common.executor;
 
-import com.example.own.common.executor.ThreadPoolTaskExecutorHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
