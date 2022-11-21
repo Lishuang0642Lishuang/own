@@ -1,5 +1,6 @@
 package com.example.own.service.task;
 
+import com.example.own.core.apollo.ApolloConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -37,6 +38,10 @@ public class ScheduleTask {
         stringList.add("ls2");
         log.info("application start, stringList:{}", stringList);
         log.info("thread name:{}", Thread.currentThread().getName());
+
+
+        String value = ApolloConfigUtils.getConfigByNamespaceAndKey("gh", "io");
+        log.info("init apollo:{}", value);
     }
 
 

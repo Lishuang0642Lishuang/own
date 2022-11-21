@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *
  */
 
-//@EnableApolloConfig()
+@EnableApolloConfig()
 @EnableScheduling
 @EnableAsync
 @SpringBootApplication(scanBasePackages={"com.example.own"})

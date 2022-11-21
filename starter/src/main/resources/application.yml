@@ -1,0 +1,11 @@
+app:
+  id: SampleApp
+apollo:
+  meta: http://27f8c07280.zicp.fun:11033
+  config-service: http://27f8c07280.zicp.fun:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
+  bootstrap:
+    enabled: true
+    namespaces: application,testnamespace
+    eagerLoad:
+      enabled: true
+
