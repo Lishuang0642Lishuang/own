@@ -1,6 +1,8 @@
 package com.example.own.api.controller;
 
 import com.example.own.core.apollo.ApolloConfigUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,7 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date: 2022/11/19 9:09 下午
  * 
  */
- 
+
+
+@Slf4j
+@Controller
 public class ApolloController {
 
     @ResponseBody

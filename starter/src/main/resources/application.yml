@@ -1,11 +1,22 @@
+#app:
+#  id: SampleApp
+#apollo:
+#  meta: http://sv1.k9s.run:11033              #应该选择tcp映射，而且，必须要加上 http
+#  config-service: http://sv1.k9s.run:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
+#  bootstrap:
+#    enabled: true
+#    namespaces: application,testnamespace
+#    eagerLoad:
+#      enabled: true
+#
+
 app:
   id: SampleApp
 apollo:
-  meta: http://27f8c07280.zicp.fun:11033
-  config-service: http://27f8c07280.zicp.fun:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
+  meta: http://testapollo.sv1.k9s.run:2271              #应该选择tcp映射，而且，必须要加上 http
+  config-service: http://testapollo.sv1.k9s.run:2271    #apollo服务和访问者不在一个机器上，必须做这个处理
   bootstrap:
     enabled: true
     namespaces: application,testnamespace
     eagerLoad:
       enabled: true
-

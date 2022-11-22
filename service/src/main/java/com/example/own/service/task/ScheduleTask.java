@@ -45,8 +45,8 @@ public class ScheduleTask {
     }
 
 
-    @Async("ownExecutor")
-    @Scheduled(cron = "0 */1 * * * ?")
+//    @Async("ownExecutor")
+//    @Scheduled(cron = "0 */1 * * * ?")
     public void process() throws Exception{
         stringList.forEach(log::info);
         log.info("process thread name:{}", Thread.currentThread().getName());
@@ -54,8 +54,8 @@ public class ScheduleTask {
         log.info("process sleep");
     }
 
-    @Async("ownExecutor")
-    @Scheduled(cron = "0 */1 * * * ?")
+//    @Async("ownExecutor")
+//    @Scheduled(cron = "0 */1 * * * ?")
     public void processOther() throws Exception {
 
         log.info("processOther thread name:{}", Thread.currentThread().getName());
