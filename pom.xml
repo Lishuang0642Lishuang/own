@@ -32,10 +32,12 @@
         <lombok.version>1.18.22</lombok.version>
         <skywalking.version>8.7.0</skywalking.version>
         <transmittable-thread-local.version>2.11.5</transmittable-thread-local.version>
+        <mybaits.plus.version>3.4.2</mybaits.plus.version>
 
     </properties>
 
 
+    <!--1、子pom想使用父pom的依赖版本，必须要把dependency放入<dependencyManagement> -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -63,65 +65,68 @@
                 <artifactId>common</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <!--#######################第三方##################################################-->
+
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo-client.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.opencsv</groupId>
+                <artifactId>opencsv</artifactId>
+                <version>${opencsv.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika-core.version}</version>
+            </dependency>
+
+            <!-- 时间处理 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-trace -->
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!--mybatis plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybaits.plus.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-
-    <dependencies>
-        <!--第三方包-->
-        <dependency>
-            <groupId>com.ctrip.framework.apollo</groupId>
-            <artifactId>apollo-client</artifactId>
-            <version>${apollo-client.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>${opencsv.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectjweaver.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ma.glasnost.orika</groupId>
-            <artifactId>orika-core</artifactId>
-            <version>${orika-core.version}</version>
-        </dependency>
-
-        <!-- 时间处理 -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda-time.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-trace -->
-        <dependency>
-            <groupId>org.apache.skywalking</groupId>
-            <artifactId>apm-toolkit-trace</artifactId>
-            <version>${skywalking.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
-            <version>${transmittable-thread-local.version}</version>
-        </dependency>
-
-
-    </dependencies>
 
 </project>
