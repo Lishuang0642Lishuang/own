@@ -1,22 +1,39 @@
-#app:
-#  id: SampleApp
-#apollo:
-#  meta: http://sv1.k9s.run:11033              #应该选择tcp映射，而且，必须要加上 http
-#  config-service: http://sv1.k9s.run:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
-#  bootstrap:
-#    enabled: true
-#    namespaces: application,testnamespace
-#    eagerLoad:
-#      enabled: true
-#
-
 app:
   id: SampleApp
 apollo:
-  meta: http://testapollo.sv1.k9s.run:2271              #应该选择tcp映射，而且，必须要加上 http
-  config-service: http://testapollo.sv1.k9s.run:2271    #apollo服务和访问者不在一个机器上，必须做这个处理
+  meta: http://sv1.k9s.run:11033              #应该选择tcp映射，而且，必须要加上 http
+  config-service: http://sv1.k9s.run:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
   bootstrap:
     enabled: true
     namespaces: application,testnamespace
     eagerLoad:
       enabled: true
+
+# http方式 和tcp 方式，都可以访问apollo
+#app:
+#  id: SampleApp
+#apollo:
+#  meta: http://testapollo.sv1.k9s.run:2271              #应该选择tcp映射，而且，必须要加上 http
+#  config-service: http://testapollo.sv1.k9s.run:2271    #apollo服务和访问者不在一个机器上，必须做这个处理
+#  bootstrap:
+#    enabled: true
+#    namespaces: application,testnamespace
+#    eagerLoad:
+#      enabled: true
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://sv1.k9s.run:13345/ApolloPortalDB?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+#    username: newuser
+#    password: Ls981592@
+
+
+# 连接远程数据库  1、检查内存穿透是否打开     2、要在workbench users and Privileges 中配置权限 新增一个  user/%  Limit to Hosts Matching
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sv1.k9s.run:13345/ApolloPortalDB?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: newuser
+    password: 201642

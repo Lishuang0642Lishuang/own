@@ -7,4 +7,6 @@ public class TODO {
     //3、 @TableField(value = "`status`")
     //4、阿里的ttl
     //5、mybatispuls的扫描
+    //6、maven中runtime
+    //7、dubbo接口的异常传递问题
 }
