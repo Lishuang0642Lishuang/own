@@ -9,4 +9,6 @@ public class TODO {
     //5、mybatispuls的扫描
     //6、maven中runtime
     //7、dubbo接口的异常传递问题
+    //8、restTemplate.exchange  抛异常的问题
+    //9、
 }
