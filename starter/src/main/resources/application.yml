@@ -1,3 +1,4 @@
+# apollo的配置
 app:
   id: SampleApp
 apollo:
@@ -21,7 +22,7 @@ apollo:
 #    eagerLoad:
 #      enabled: true
 
-
+#mysql的配置
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
