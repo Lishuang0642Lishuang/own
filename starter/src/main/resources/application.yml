@@ -2,8 +2,8 @@
 app:
   id: SampleApp
 apollo:
-  meta: http://sv1.k9s.run:11033              #应该选择tcp映射，而且，必须要加上 http
-  config-service: http://sv1.k9s.run:11033    #apollo服务和访问者不在一个机器上，必须做这个处理
+  meta: http://localhost:8080              #应该选择tcp映射，而且，必须要加上 http
+  config-service: http://localhost:8080    #apollo服务和访问者不在一个机器上，必须做这个处理
   bootstrap:
     enabled: true
     namespaces: application,testnamespace
@@ -35,6 +35,6 @@ apollo:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://sv1.k9s.run:13345/ApolloPortalDB?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
-    username: newuser
+    url: jdbc:mysql://localhost:3306/ApolloPortalDB?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
     password: 201642
