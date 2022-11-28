@@ -32,7 +32,7 @@ import java.util.regex.Matcher;
  *
  * 这里没有使用拦截 {@link org.apache.ibatis.executor.Executor 主要是因为PageHelp处理的时候，直接调用Executor的方法进行处理，没有调用invocation.proceed() 下一个拦截器处理，直接处理SQL
  * 的修改，因此，将这个拦截设置到最后的查询阶段去处理}
- * {@linkplain com.github.pagehelper.PageInterceptor executor.query(ms, parameter, rowBounds, resultHandler, cacheKey, boundSql) }
+ *
  * <p>
  * 因此拦截StatementHandler 肯定不会错误【StatementHandler，语句处理器负责和JDBC层具体交互，包括prepare语句，执行语句，以及调用ParameterHandler.parameterize()设置参数】
  */
