@@ -1,6 +1,7 @@
 package com.example.own.starter.mybatis.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.ParameterMapping;
@@ -75,7 +76,7 @@ public class MybatisSqlPrintInterceptor implements Interceptor, Ordered {
             StatementHandler statementHandler = (StatementHandler) target;
             BoundSql boundSql = statementHandler.getBoundSql();
             if (configuration == null) {
-                final DefaultParameterHandler parameterHandler = (DefaultParameterHandler) statementHandler.getParameterHandler();
+                final ParameterHandler parameterHandler =  statementHandler.getParameterHandler();
                 Field configurationField = ReflectionUtils.findField(parameterHandler.getClass(), "configuration");
                 ReflectionUtils.makeAccessible(configurationField);
                 this.configuration = (Configuration) configurationField.get(parameterHandler);
