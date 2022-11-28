@@ -28,7 +28,7 @@ import java.util.regex.Matcher;
 /**
  * @desc: sql打印的拦截器
  * @author: 英布 
- * @date: 2022/11/28 3:09 下午
+ * @Date: 2022/11/28 3:09 下午
  *
  * 这里没有使用拦截 {@link org.apache.ibatis.executor.Executor 主要是因为PageHelp处理的时候，直接调用Executor的方法进行处理，没有调用invocation.proceed() 下一个拦截器处理，直接处理SQL
  * 的修改，因此，将这个拦截设置到最后的查询阶段去处理}
@@ -44,12 +44,8 @@ public class MybatisSqlPrintInterceptor implements Interceptor, Ordered {
 
     private Configuration configuration = null;
 
-    private static final ThreadLocal<SimpleDateFormat> DATE_FORMAT_THREAD_LOCAL = new ThreadLocal<SimpleDateFormat>() {
-        @Override
-        protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        }
-    };
+    private static final ThreadLocal<SimpleDateFormat> DATE_FORMAT_THREAD_LOCAL =
+            ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
