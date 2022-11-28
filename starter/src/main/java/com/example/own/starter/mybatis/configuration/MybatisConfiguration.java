@@ -1,4 +1,4 @@
-package com.example.own.starter.mybatis;
+package com.example.own.starter.mybatis.configuration;
 
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
