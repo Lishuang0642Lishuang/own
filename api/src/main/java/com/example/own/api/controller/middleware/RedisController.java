@@ -1,4 +1,4 @@
-package com.example.own.api.controller;
+package com.example.own.api.controller.middleware;
 
 
 import com.example.own.core.redis.RedisClient;

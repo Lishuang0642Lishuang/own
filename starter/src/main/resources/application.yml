@@ -33,8 +33,25 @@ apollo:
 
 # 连接远程数据库  1、检查内存穿透是否打开     2、要在workbench users and Privileges 中配置权限 新增一个  user/%  Limit to Hosts Matching
 spring:
+
+  #mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ApolloPortalDB?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
     username: root
     password: 201642
+
+
+
+  #kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      bootstrap-servers: localhost:9092 # 会覆盖 spring.kafka.bootstrap-servers 配置
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # 序列化key的类
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # 反序列化value的类
+    consumer:
+      bootstrap-servers: localhost:9092 # 会覆盖 sp
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 反序列化key的类
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer # 反序列化value的类
+      group-id: testgroup

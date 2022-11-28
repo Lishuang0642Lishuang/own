@@ -1,4 +1,4 @@
-package com.example.own.api.controller;
+package com.example.own.api.controller.tool;
 
 import com.example.own.core.mongo.entity.ChangeHistoryDO;
 import com.google.gson.Gson;
