@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+
+    <!--引入skyWalking ,在logback.xml中添加配置，及在idea后台添加启动项即可
+    -javaagent:D:\software\apache-skywalking-apm-8.6.0\apache-skywalking-apm-bin\agent\skywalking-agent.jar
+    -Dswalking.agent.service_name=own
+    -Dskywalking.collector.backend_service=127.0.0.1:11800
+     -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 对日志进行格式化 -->
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>
+                    %d{yyyy-MM-dd HH:mm:ss.SSS}, %p, %c, %F, %t, %L, %M, %tid, trace-id:%X{traceId} %m%n
+                </pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="console" />
+    </root>
+
+
+</configuration>
