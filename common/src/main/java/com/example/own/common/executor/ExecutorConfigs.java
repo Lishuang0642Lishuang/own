@@ -3,6 +3,9 @@ package com.example.own.common.executor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.core.task.support.ExecutorServiceAdapter;
+import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -71,6 +74,36 @@ public class ExecutorConfigs {
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         taskExecutor.setThreadNamePrefix("ownExecutor-");
         taskExecutor.setThreadPoolName("ownExecutor");
+        return taskExecutor;
+    }
+
+
+    @Bean("anotherExecutor")
+    public Executor AnotherExecutor() {
+
+        TaskExecutor taskExecutor = new ConcurrentTaskExecutor();
+
+//        //线程池关闭的时候等待所有任务都完成再继续销毁其他的Bean
+//        taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+//        //设置线程池中任务的等待时间，如果超过这个时候还没有销毁就强制销毁，以确保应用最后能够被关闭，而不是阻塞住
+//        taskExecutor.setAwaitTerminationSeconds(DEFAULT_AWAIT_TIME);
+//        //核心线程数
+//        taskExecutor.setCorePoolSize(DEFAULT_CORE_POOL_SIZE);
+//        //最大线程数
+//        taskExecutor.setMaxPoolSize(DEFAULT_MAX_POOL_SIZE);
+//        //缓冲执行任务的队列
+//        taskExecutor.setQueueCapacity(DEFAULT_WORK_QUEUE_SIZE);
+//        //当超过了核心线程出之外的线程在空闲时间到达之后会被销毁
+//        taskExecutor.setKeepAliveSeconds(DEFAULT_KEEP_ALIVE_SECOND);
+//
+//        //Reject策略预定义有四种：
+//        //(1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。
+//        //(2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃.
+//        //(3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃.
+//        //(4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）
+//        taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+//        taskExecutor.setThreadNamePrefix("ownExecutor-");
+//        taskExecutor.setThreadPoolName("ownExecutor");
         return taskExecutor;
     }
 }

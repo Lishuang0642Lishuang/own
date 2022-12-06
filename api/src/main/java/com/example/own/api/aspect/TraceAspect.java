@@ -1,5 +1,6 @@
 package com.example.own.api.aspect;
 
+import com.example.own.common.constant.OwnConstant;
 import com.example.own.core.snowflake.SnowFlakeGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -26,8 +27,8 @@ public class TraceAspect {
 
     @Around("requestPointcut()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        MDC.put("traceId", snowFlakeGenerator.getNextId());
-        log.info("set traceId:{}", MDC.get("traceId"));
+        MDC.put(OwnConstant.TRACE_ID, snowFlakeGenerator.getNextId());
+        log.info("set traceId:{}", MDC.get(OwnConstant.TRACE_ID));
         return proceedingJoinPoint.proceed();
     }
 

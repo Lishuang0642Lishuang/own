@@ -11,6 +11,7 @@ import com.alibaba.ttl.threadpool.TtlExecutors;
 //import com.tuya.typhoon.common.context.TyphoonContextConfig;
 //import com.tuya.typhoon.common.context.TyphoonSessionContext;
 //import com.tuya.typhoon.common.context.entity.TyphoonSdkContext;
+import com.example.own.common.constant.OwnConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.skywalking.apm.toolkit.trace.CallableWrapper;
 import org.apache.skywalking.apm.toolkit.trace.RunnableWrapper;
@@ -483,8 +484,7 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
 
     private String getTraceId() {
         try {
-//            return MDC.get(AppFilterHelper.KEY_TRACE_ID);
-            return "";
+            return MDC.get(OwnConstant.TRACE_ID);
         } catch (Exception e) {
             log.info("get trace id error", e);
             return "";
@@ -584,13 +584,13 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         Runnable newRunnable = () -> {
             try {
 //                //1. 传递traceid
-//                MDC.put(AppFilterHelper.KEY_TRACE_ID, traceId);
+                MDC.put(OwnConstant.TRACE_ID, traceId);
 //                //3. 设置父级typhoonContext
 //                setAsyncSdkContext(generalSdkContext);
                 runnable.run();
             } finally {
 //                TyphoonSessionContext.remove();
-//                MDC.remove(AppFilterHelper.KEY_TRACE_ID);
+                MDC.remove(OwnConstant.TRACE_ID);
             }
         };
         return newRunnable;
