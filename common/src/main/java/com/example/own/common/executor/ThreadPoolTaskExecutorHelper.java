@@ -498,7 +498,7 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         try {
             RunnableWrapper wrapper = RunnableWrapper.of(wrapRunnable(task));
 
-            TRACE_MAP.put(wrapper, getTraceId());
+//            TRACE_MAP.put(wrapper, getTraceId());
 
             TtlExecutors.getTtlExecutor(executor).execute(wrapper);
         } catch (RejectedExecutionException ex) {
@@ -517,7 +517,7 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         try {
             RunnableWrapper wrapper = RunnableWrapper.of(wrapRunnable(task));
 
-            TRACE_MAP.put(wrapper, getTraceId());
+//            TRACE_MAP.put(wrapper, getTraceId());
 
             return TtlExecutors.getTtlExecutorService(executor).submit(wrapper);
         } catch (RejectedExecutionException ex) {
@@ -531,7 +531,7 @@ public class ThreadPoolTaskExecutorHelper extends ExecutorConfigurationSupport
         try {
             CallableWrapper wrapper = CallableWrapper.of(wrapCallable(task));
 
-            TRACE_MAP.put(wrapper, getTraceId());
+//            TRACE_MAP.put(wrapper, getTraceId());
 
             return TtlExecutors.getTtlExecutorService(executor).submit(wrapper);
         } catch (RejectedExecutionException ex) {

@@ -11,4 +11,5 @@ public class TODO {
     //7、dubbo接口的异常传递问题
     //8、restTemplate.exchange  抛异常的问题
     //9、java 虚拟机排查
+    //10、云云对接怎么进行鉴权
 }
