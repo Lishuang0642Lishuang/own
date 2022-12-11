@@ -12,4 +12,7 @@ public class TODO {
     //8、restTemplate.exchange  抛异常的问题
     //9、java 虚拟机排查
     //10、云云对接怎么进行鉴权
+    //11、spring中读取文件  ResourceLoaderAware
+    //12、spring FactoryBean 生成代理对象
+    //13、重写一个invocationHandler 实现反射增强
 }
