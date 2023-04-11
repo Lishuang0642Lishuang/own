@@ -38,7 +38,8 @@
         <commons-pool2.version>2.6.2</commons-pool2.version>
         <apm-toolkit-logback.version>8.6.0</apm-toolkit-logback.version>
         <logstash-logback-encoder.version>7.0.1</logstash-logback-encoder.version>
-
+        <commons-text.version>1.9</commons-text.version>
+        <swagger-annotations.version>1.6.2</swagger-annotations.version>
     </properties>
 
 
@@ -157,6 +158,18 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${commons-text.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
