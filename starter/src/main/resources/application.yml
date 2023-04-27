@@ -56,3 +56,6 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 反序列化key的类
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer # 反序列化value的类
       group-id: testgroup
+
+  application:
+    name: own
