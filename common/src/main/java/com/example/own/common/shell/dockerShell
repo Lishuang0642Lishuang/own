@@ -96,3 +96,13 @@ ubuntu: 基础镜像，先在本地检查，如果本地没有，则检查远程
 
 2、docker pull fedora:20
 拉取镜像
+
+===============================部署SkyWalking=========================================
+1、安装elasticsearch
+docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.5.1
+
+2、安装SkyWalking oap
+docker run --name oap --restart always -d --restart=always -e TZ=Asia/Shanghai -p 12800:12800 -p 11800:11800 --link elasticsearch:elasticsearch -e SW_STORAGE=elasticsearch7 -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 apache/skywalking-oap-server:8.7.0-es7
+
+3、安装SkyWalking ui
+docker run -d --name skywalking-ui2 --restart=always -e TZ=Asia/Shanghai -p 8080:8080 --link oap:oap -e SW_OAP_ADDRESS=http://oap:12800 apache/skywalking-ui:8.7.0
