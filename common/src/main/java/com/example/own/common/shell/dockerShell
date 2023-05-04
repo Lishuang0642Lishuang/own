@@ -1,0 +1,98 @@
+
+====================容器相关==========================
+1、docker info
+查看docker 信息
+
+
+2、docker run -i -t ubuntu /bin/bash
+-t: 在新容器内指定一个伪终端或终端。
+-i: 允许你对容器内的标准输入 (STDIN) 进行交互。
+-d: 后台运行
+ubuntu: 基础镜像，先在本地检查，如果本地没有，则检查远程有没有
+/bin/bash: 在启动的容器里执行的命令
+
+3、 hostname
+检查容器的主机名
+
+4、cat /etc/hosts
+查看hosts文件
+
+5、ps -aux
+检查容器的进程
+
+6、docker ps -a
+查看系统中容器列表，-a 代表所有的
+
+7、exit
+停止容器
+
+8、docker start ubuntu
+根据命令重启容器
+
+9、docker attach ubuntu
+进入ubuntu的会话
+
+10、docker logs lsubuntu
+查看容器的日志
+
+11、docker logs -f lsubuntu
+跟踪容器的日志
+
+12、docker logs --tail 10 lsubuntu
+获取日志最后10行的内容
+
+13、docker logs --tail 0 lsubuntu
+根据容器最新日志而不是读取整个日志文件
+
+14、docker logs -ft lsubuntu
+给日志附上时间戳
+
+15、docker run --log-driver="syslog" --name lsubuntu -d ubuntu
+修改日志输出方式
+
+16、docker stats
+显示一个或多个容器的统计信息
+
+17、docker exec -d lsubuntu touch /etc/new_config_file
+在lsubuntu容器内创建一个空文件
+
+18、docker exec -t -i lsubuntu /bin/bash
+在lsubuntu中运行交互式的指令
+
+19、docker stop lsubuntu
+停止正在运行的容器
+
+20、--restart
+自动重启容器   可以选择  --restart=always 或者 --restart = on-failure:5
+
+21、docker inspect lsubuntu
+查看容器更多信息
+
+22、docker inspect --format='{{ .State.Running}}' lsubuntu
+查看容器状态
+
+23、docker rm loving_pare
+删除容器
+
+24、docker run -d -p 80 --name ls jam nginx -g "daemon off;"
+-p代表端口号    用宿主机的端口随机映射容器中的80端口
+
+25、docker run -d -p 8080:80 --name ls jam nginx -g "daemon off;"
+-p代表端口号    用宿主机的8080端口映射容器中的80端口
+
+26、docker port lsubuntu 80
+查看端口映射情况
+
+27、apt-get update && apt-get install wget
+安装wget
+
+28、docker compose -f rocketmq.yml up -d
+通过docker compose的方式启动docker，up -d 要放到后面
+
+
+================================镜像相关=============================================
+1、docker images
+获取镜像列表
+
+2、docker pull fedora:20
+拉取镜像
