@@ -71,7 +71,7 @@ ubuntu: 基础镜像，先在本地检查，如果本地没有，则检查远程
 22、docker inspect --format='{{ .State.Running}}' lsubuntu
 查看容器状态
 
-23、docker rm loving_pare
+23、docker rm loving_pare lsubuntu
 删除容器
 
 24、docker run -d -p 80 --name ls jam nginx -g "daemon off;"
@@ -89,6 +89,8 @@ ubuntu: 基础镜像，先在本地检查，如果本地没有，则检查远程
 28、docker compose -f rocketmq.yml up -d
 通过docker compose的方式启动docker，up -d 要放到后面
 
+29、docker cp lsubuntu:/app/logs/access.log /logs
+把lsubuntu的文件复制处理
 
 ================================镜像相关=============================================
 1、docker images

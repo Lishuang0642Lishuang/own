@@ -10,6 +10,10 @@ apollo:
     eagerLoad:
       enabled: true
 
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: test-group
 # http方式 和tcp 方式，都可以访问apollo
 #app:
 #  id: SampleApp
