@@ -1,0 +1,13 @@
+
+
+查看cpu信息
+lscpu
+
+查看cpu 详细信息
+cat /proc/cpuinfo
+
+查看磁盘
+df -h
+
+查看目录或者文件内存占用
+du -h --max-depth=1 /data

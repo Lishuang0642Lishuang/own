@@ -3,7 +3,7 @@
 
 
     <!--引入skyWalking ,在logback.xml中添加配置，及在idea后台添加启动项即可
-    -javaagent:D:\software\apache-skywalking-apm-8.6.0\apache-skywalking-apm-bin\agent\skywalking-agent.jar
+    -javaagent:D:\software\apache-skywalking-apm-8.7.0\apache-skywalking-apm-bin\agent\skywalking-agent.jar
     -Dswalking.agent.service_name=own
     -Dskywalking.collector.backend_service=127.0.0.1:11800
      -->

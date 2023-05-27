@@ -1,0 +1,74 @@
+1、查询pod  默认查询的是 default
+kubectl get pods
+
+2、查询pod  查询指定命名空间
+kubectl get pods -n namespace
+
+3、查询所有命名空间的pod
+kubectl get pods --all-namespaces
+
+4、查询所有命名空间的pod 并统计数量(去掉表头)
+kubectl get pods --all-namespaces --no-headers | wc -l
+
+5、查询pod，并根据条件过滤
+kubectl get pods -n namespace | grep "error"
+
+6、在指定namespace查询pod  然后过滤
+kubectl get pods -n cattle-system |grep 'ContainerStatusUnknown\|Error'
+
+7、在所有命名空间查询pod，根据条件过滤， 然后删除所有的
+kubectl get pods --all-namespaces --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod --all-namespaces
+
+kubectl get pods -n default --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod -n default
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+、删除指定的pod
+kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+
+
+
+
+kubectl get pods -n cattle-system |grep Evicted |awk '{print $1}' |xargs kubectl delete pod -n cattle-system
+
+
+kubectl get pods -n cattle-system |grep Containerstatusunknown | grep Error
+
+
+kubectl get pods  |grep 'ContainerStatusUnknown\|Error' | awk '{print $1}' | xargs kubectl delete pod

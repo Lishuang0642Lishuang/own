@@ -39,6 +39,8 @@
         <commons-pool2.version>2.6.2</commons-pool2.version>
         <apm-toolkit-logback.version>8.6.0</apm-toolkit-logback.version>
         <logstash-logback-encoder.version>7.0.1</logstash-logback-encoder.version>
+        <rocketmq.version>2.2.1</rocketmq.version>
+
         <commons-text.version>1.9</commons-text.version>
         <swagger-annotations.version>1.6.2</swagger-annotations.version>
     </properties>
@@ -176,6 +178,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${commons-pool2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
             </dependency>
 
         </dependencies>

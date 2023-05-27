@@ -31,8 +31,12 @@ public class AppController {
 
         CompletableFuture.runAsync(()-> appService.getAppList(), ownExecutor);
 
-        log.info("================================================================================================");
 
-        return appService.getAppList();
+        List<AppDO> appList = appService.getAppList();
+        log.info("================================================================================================");
+        Integer zero = 0;
+        Integer num = 1/zero;
+
+        return appList;
     }
 }

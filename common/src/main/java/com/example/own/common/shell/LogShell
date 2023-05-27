@@ -1,0 +1,11 @@
+
+
+
+#搜索日志中的某个标志，并统计数量
+cat iot-service-info.log | grep "ss" |wc -l
+
+wc -l  统计行数
+wc -w  统计字数
+
+#查看100行的日志
+tail -f -n 100 broker.log

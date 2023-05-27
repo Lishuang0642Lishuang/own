@@ -16,4 +16,8 @@ public class TODO {
     //12、spring FactoryBean 生成代理对象
     //13、重写一个invocationHandler 实现反射增强
     //14、test2
+
+
+    //15、熟悉git的操作
+    //46、熟悉kibana的使用
 }
