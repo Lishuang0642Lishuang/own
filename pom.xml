@@ -9,6 +9,7 @@
         <module>starter</module>
         <module>service</module>
         <module>common</module>
+        <module>server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
