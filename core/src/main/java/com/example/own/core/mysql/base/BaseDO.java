@@ -27,6 +27,15 @@ public class BaseDO implements Serializable {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+
+    private Integer status;
+
+    private Long createTime;
+
+    private Long modifyTime;
+
+    private String createUser;
+
 //    /**
 //     * 项目id
 //     */

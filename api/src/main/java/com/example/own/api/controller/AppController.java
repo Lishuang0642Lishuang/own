@@ -1,5 +1,6 @@
 package com.example.own.api.controller;
 
+import com.example.own.common.utils.DateTimeUtils;
 import com.example.own.core.mysql.bean.AppDO;
 import com.example.own.service.app.IAppService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,5 +39,14 @@ public class AppController {
         Integer num = 1/zero;
 
         return appList;
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping("/static")
+    public String getStaticResult() {
+        DateTimeUtils.parseMinuteToTime(10);
+        return "hello";
     }
 }
