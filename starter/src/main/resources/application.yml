@@ -48,7 +48,8 @@ spring:
 
 
   #kafka
-  #启动kafka,先进入zk的目录，点击zkServer.cmd  然后进入kafka的目录，进入终端   bin\windows\kafka-server-start.bat config\server.properties
+  #启动kafka：1、先进入zk的目录，点击zkServer.cmd  2、进入kafka的目录，进入终端   bin\windows\kafka-server-start.bat config\server.properties
+  #查看topic之类： 3、另开一个终端， bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
   kafka:
     bootstrap-servers: localhost:9092
     producer:
