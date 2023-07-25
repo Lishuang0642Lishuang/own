@@ -21,6 +21,9 @@ kubectl get pods --all-namespaces --no-headers |grep 'ContainerStatusUnknown\|Er
 
 kubectl get pods -n default --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod -n default
 
+kubectl get pods -n  kube-system --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod -n  kube-system
+
+
 
 
 

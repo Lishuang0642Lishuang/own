@@ -43,7 +43,7 @@
 
         <commons-text.version>1.9</commons-text.version>
         <swagger-annotations.version>1.6.2</swagger-annotations.version>
-        <netty.version>4.1.6.Final</netty.version>
+        <netty.version>4.1.31.Final</netty.version>
     </properties>
 
 

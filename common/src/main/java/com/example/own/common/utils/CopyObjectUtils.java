@@ -167,5 +167,14 @@ public class CopyObjectUtils {
         return mapperFacade;
     }
 
+
+    public static void main(String[] args) {
+
+        Bean2 bean2 = new Bean2();
+        bean2.setKey(1L);
+        Bean1 bean1 = CopyObjectUtils.copyAtoB(bean2, Bean1.class);
+        System.out.println(bean1);
+    }
+
 }
 
