@@ -9,7 +9,7 @@ public class LengthUtil {
 
 
     /**
-     * 获取对象字节长度
+     * 获取对象字节长度的大小
      * @param object
      * @return
      */
