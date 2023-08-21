@@ -20,7 +20,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseDO> extends 
 
     public boolean logicDelete(T entity) {
         entity.setStatus(0);
-        entity.setModifyTime(System.currentTimeMillis());
+        entity.setUpdateTime(System.currentTimeMillis());
 
         return updateById(entity);
     }
@@ -31,7 +31,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseDO> extends 
         entityList.forEach(
                 item -> {
                     item.setStatus(0);
-                    item.setModifyTime(System.currentTimeMillis());
+                    item.setUpdateTime(System.currentTimeMillis());
                 }
         );
         return updateBatchById(entityList);
@@ -40,7 +40,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseDO> extends 
 
     public boolean logicDelete(LambdaUpdateWrapper<T> updateWrapper) {
         updateWrapper.set(T::getStatus, 0);
-        updateWrapper.set(T::getModifyTime, System.currentTimeMillis());
+        updateWrapper.set(T::getUpdateTime, System.currentTimeMillis());
 
         return update(updateWrapper);
 

@@ -6,6 +6,7 @@ import com.example.own.core.mysql.bean.AppDO;
 import com.example.own.service.app.IAppService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,8 +35,8 @@ public class AppController {
 
         List<AppDO> appList = appService.getAppList();
         log.info("================================================================================================");
-        Integer zero = 0;
-        Integer num = 1/zero;
+//        Integer zero = 0;
+//        Integer num = 1/zero;
 
         return appList;
     }
@@ -48,4 +49,36 @@ public class AppController {
         DateTimeUtils.parseMinuteToTime(10);
         return "hello";
     }
+
+    @ResponseBody
+    @GetMapping("/unionQuery")
+    public String unionQuery(String name, String orgId) {
+
+        appService.unionQuery(name, orgId);
+        return "hello";
+    }
+
+
+    public static void main(String[] args) throws Exception {
+
+
+        double a = 15.0345;
+        long b = (long) a;
+
+        System.out.println(b);
+//
+//        EnumJson json = null;
+//        Optional.ofNullable(json).orElseThrow(()-> new Exception());
+
+
+//        String b =  "{\"defaultValue\":\"0\",\"enums\":[{\"key\":\"0\",\"value\":\"ice\"},{\"key\":\"1\",\"value\":\"airConditioner\"},{\"key\":\"2\",\"value\":\"battery\"}]}";
+//        EnumJson json = new Gson().fromJson(b,EnumJson.class);
+//
+//        String a = "{\"defaultValue\":\"0\",\"enums\":[{\"key\":\"0\",\"value\":\"冰箱\"},{\"key\":\"1\",\"value\":\"空调\"},{\"key\":\"2\",\"value\":\"电源\"}]}";
+//
+//        EnumJson enumJson = new Gson().fromJson(a, EnumJson.class);
+//
+//        System.out.println(enumJson);
+    }
+
 }

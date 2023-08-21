@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.own.core.mysql.mapper.AppMapper">
+
+    <select id="unionQueryDevice" resultType="com.example.own.core.mysql.bean.AppDO">
+        select a.*, b.*
+        <if test = "orgId != null and orgId != '' ">
+        ,c.*
+        </if>
+        from app a
+        left join efapp_scoring_task b on a.name = b.name
+            <if test = "orgId != null and orgId != '' ">
+                left join efapp_user_scoring_task c on c.user_id = a.name
+            </if>
+        <where>
+            1=1
+            <if test = "name != null and name != '' ">
+                and a.name = #{name}
+            </if>
+
+            <if test = "orgId != null and orgId != '' ">
+                and a.orgId = #{orgId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

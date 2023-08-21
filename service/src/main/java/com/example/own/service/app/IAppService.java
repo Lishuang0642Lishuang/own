@@ -7,4 +7,6 @@ import java.util.List;
 public interface IAppService {
 
     List<AppDO> getAppList();
+
+    List<AppDO> unionQuery(String name, String orgId);
 }
