@@ -3,7 +3,7 @@ package com.example.own.service.replacestring;
 import java.text.MessageFormat;
 
 /**
- * @author link.li
+ * @author 英布
  * @date 2023/4/6
  */
 public class ReplaceString {
@@ -14,7 +14,7 @@ public class ReplaceString {
     public static void main(String[] args) {
 
 
-        String newString = MessageFormat.format(template, "world", "lishuang");
+        String newString = MessageFormat.format(template, "world", "英布");
 
 
         System.out.println(newString);

@@ -25,7 +25,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 /**
- * @author link.li
+ * @author 英布
  * @date 2023/4/4
  */
 public class GenerateCode {
@@ -94,7 +94,7 @@ public class GenerateCode {
 
     /**
      * @desc 根据List<Class < ?>> 进行遍历，生成指定bean,用以组合生成代码
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 0:00
      */
     public static List<GeneratedBean> generateBeanListByClassList(List<Class<?>> classList) throws Exception {
@@ -119,7 +119,7 @@ public class GenerateCode {
 
     /**
      * @desc 根据beanList生成代码
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 23:59
      */
     public static void generateCodeByBeanList(List<GeneratedBean> beanList) throws Exception {
@@ -248,7 +248,7 @@ public class GenerateCode {
 
     /**
      * @desc 根据传入的bean和方法，组装GeneratedBean
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 0:59
      */
     public static void buildGeneratedBean(GeneratedBean bean, Method method) throws Exception {
@@ -262,7 +262,7 @@ public class GenerateCode {
 
     /**
      * @desc 把参数解析出来
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 23:07
      */
     public static void setParams(GeneratedBean bean, Method method) throws Exception {
@@ -288,7 +288,7 @@ public class GenerateCode {
 
     /**
      * @desc 设置reqType, 一般有json和 urlencoded
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 23:02
      */
     public static void setReqType(GeneratedBean bean, Method method) throws Exception {
@@ -307,7 +307,7 @@ public class GenerateCode {
 
     /**
      * @desc 设置类的名字
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 22:51
      */
     public static void setTestMethodName(GeneratedBean bean, Method method) throws Exception {
@@ -318,7 +318,7 @@ public class GenerateCode {
     /**
      * @desc 设置 isLogin
      *
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 22:48
      */
     public static void setIsLogin(GeneratedBean bean, Method method) throws Exception {
@@ -332,7 +332,7 @@ public class GenerateCode {
 
     /**
      * @desc 拿到getMapping、postMapping、putMapping中的url  并设置reqMethod
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 16:35
      */
     public static void setApiAddrAndReqMethod(GeneratedBean bean, Method method) throws Exception {
@@ -362,7 +362,7 @@ public class GenerateCode {
 
     /**
      * @desc 根据方法拿到备注
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 1:04
      */
     public static String getApiDesc(Method method) {
@@ -375,7 +375,7 @@ public class GenerateCode {
 
     /**
      * @desc 获取requestMapping注解上的url
-     * @author link.li
+     * @author 英布
      * @date 2023/4/5 0:55
      */
     public static String getBaseUrl(Class<?> clazz) {
@@ -390,7 +390,7 @@ public class GenerateCode {
 
     /**
      * @desc 根据包名反射获取所有的类
-     * @author link.li
+     * @author 英布
      * @date 2023/4/4 23:40
      */
     public static List<Class<?>> getClassesByPackageName(String packageName) throws Exception {

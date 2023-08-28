@@ -5,7 +5,7 @@ import org.springframework.beans.factory.FactoryBean;
 
 /**
  * @desc: 类的增强
- * @author:lishuang
+ * @author:英布
  * @date: 2022-12-11 16:50:37
  *
  */

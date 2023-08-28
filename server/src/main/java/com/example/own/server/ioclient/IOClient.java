@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * @desc: 模拟netty客户端
- * @author:lishuang
+ * @author:英布
  * @date: 2023-05-27 23:45:44
  *
  */

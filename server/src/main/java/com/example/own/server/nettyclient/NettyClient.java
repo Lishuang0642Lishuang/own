@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @desc: netty客户端
- * @author:lishuang
+ * @author:英布
  * @date: 2023-05-28 16:48:47
  *
  */

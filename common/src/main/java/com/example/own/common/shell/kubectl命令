@@ -19,7 +19,7 @@ kubectl get pods -n cattle-system |grep 'ContainerStatusUnknown\|Error'
 7、在所有命名空间查询pod，根据条件过滤， 然后删除所有的
 kubectl get pods --all-namespaces --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod --all-namespaces
 
-kubectl get pods -n default --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod -n default
+kubectl get pods -n default --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted\|Imagepullbackoff\|Crashloopbackoff' |awk '{print $1}' | xargs kubectl delete pod -n default
 
 kubectl get pods -n  kube-system --no-headers |grep 'ContainerStatusUnknown\|Error\|Evicted' |awk '{print $1}' | xargs kubectl delete pod -n  kube-system
 

@@ -19,6 +19,10 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
 
         <!--mongo start-->
         <dependency>

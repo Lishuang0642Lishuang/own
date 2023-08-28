@@ -6,7 +6,7 @@ import java.net.Socket;
 
 /**
  * @desc: 模拟netty服务端
- * @author:lishuang
+ * @author:英布
  * @date: 2023-05-27 23:26:40
  *
  */

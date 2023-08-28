@@ -5,8 +5,10 @@ import com.example.own.common.utils.DateTimeUtils;
 import com.example.own.core.mysql.bean.AppDO;
 import com.example.own.service.app.IAppService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,6 +58,17 @@ public class AppController {
 
         appService.unionQuery(name, orgId);
         return "hello";
+    }
+
+    @ResponseBody
+    @PostMapping("/save")
+    public void save(AppDO appDO) {
+        AppDO appDO1 = new AppDO();
+        appDO1.setAppId(String.valueOf(RandomUtils.nextInt()));
+        appDO1.setName(String.valueOf(RandomUtils.nextInt()));
+        appDO1.setOrgId(String.valueOf(RandomUtils.nextInt()));
+
+        appService.baseSave(appDO1);
     }
 
 

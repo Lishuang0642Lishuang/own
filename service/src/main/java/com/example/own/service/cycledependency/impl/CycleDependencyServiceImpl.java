@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @desc: 循环依赖的问题，其实很简单，只是之前自己想的太复杂了，把自己给吓到了
- * @author:lishuang
+ * @author:英布
  * @date: 2023-01-25 00:15:45
  *
  */

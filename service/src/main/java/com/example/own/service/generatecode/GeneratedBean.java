@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @desc 解析好了的bean，方便转换成用例的参数
- * @author link.li
+ * @author 英布
  * @date 2023/4/5 0:31
  */
 @Data

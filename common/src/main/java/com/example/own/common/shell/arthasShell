@@ -1,0 +1,6 @@
+curl -O https://arthas.aliyun.com/arthas-boot.jar
+
+若提示curl不对，则
+apk add curl
+
+java -jar arthas-boot.jar
