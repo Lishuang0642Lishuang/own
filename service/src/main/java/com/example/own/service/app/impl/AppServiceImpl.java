@@ -7,13 +7,12 @@ import com.example.own.core.mysql.mapper.AppMapper;
 import com.example.own.service.app.IAppService;
 import com.example.own.service.base.BaseServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service("appService")
@@ -28,8 +27,7 @@ public class AppServiceImpl extends BaseServiceImpl<AppMapper, AppDO> implements
     @Resource
     SqlBatchOperateComponent<AppDO> component;
 
-    @Resource
-    LinkedBlockingQueue<Runnable> blockingQueue = new LinkedBlockingQueue<>(20);
+    private LinkedBlockingQueue<Runnable> blockingQueue = new LinkedBlockingQueue<>(20);
 
 
 
@@ -51,28 +49,19 @@ public class AppServiceImpl extends BaseServiceImpl<AppMapper, AppDO> implements
 
     @Override
     public void baseSave(AppDO appDO) {
+        
+        for (int i=0; i<300; i++) {
 
+            AppDO newAppDO = new AppDO();
+            newAppDO.setAppId(String.valueOf(RandomUtils.nextInt()));
+            newAppDO.setName(String.valueOf(RandomUtils.nextInt()));
+            newAppDO.setOrgId(String.valueOf(RandomUtils.nextInt()));
+            newAppDO.setCreateTime(RandomUtils.nextLong());
+            newAppDO.setCreateUser("sdf");
+            newAppDO.setId(RandomUtils.nextLong());
+            component.saveWithCyclicBarrier(this, newAppDO);
 
-
-
-        ThreadPoolExecutor sqlBatchExecutor =
-                new ThreadPoolExecutor(1, 2, 60L, TimeUnit.SECONDS, blockingQueue){
-
-                };
-        sqlBatchExecutor.execute(() ->{
-
-
-
-
-
-
-
-        });
-
-
-
-
-//        component.saveWithCyclicBarrier(this, appDO);
+        }
     }
 
 

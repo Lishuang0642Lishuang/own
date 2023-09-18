@@ -4,6 +4,7 @@ import com.example.own.api.dto.QueryAppRequest;
 import com.example.own.common.utils.DateTimeUtils;
 import com.example.own.core.mysql.bean.AppDO;
 import com.example.own.service.app.IAppService;
+import com.example.own.service.user.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Controller;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
 @Slf4j
 @Controller
+@RequestMapping("/app")
 public class AppController {
 
     @Resource
@@ -27,20 +30,28 @@ public class AppController {
     @Resource
     Executor ownExecutor;
 
+    @Resource
+    IUserService userService;
+
     @ResponseBody
     @RequestMapping("/appList")
-    public List<AppDO> getAppList() {
+    public List<AppDO> getAppList(Integer num) {
         log.info("getAppList:{}", "query");
 
         CompletableFuture.runAsync(()-> appService.getAppList(), ownExecutor);
 
 
         List<AppDO> appList = appService.getAppList();
+        List<AppDO> newList = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            newList.add(appList.get(i));
+        }
+
         log.info("================================================================================================");
 //        Integer zero = 0;
 //        Integer num = 1/zero;
 
-        return appList;
+        return newList;
     }
 
 
@@ -69,6 +80,7 @@ public class AppController {
         appDO1.setOrgId(String.valueOf(RandomUtils.nextInt()));
 
         appService.baseSave(appDO1);
+        userService.baseSave();
     }
 
 

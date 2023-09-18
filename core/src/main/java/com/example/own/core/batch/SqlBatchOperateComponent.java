@@ -2,6 +2,7 @@ package com.example.own.core.batch;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.own.common.lock.SpinLock;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.keyvalue.DefaultMapEntry;
 import org.apache.commons.lang3.ObjectUtils;
@@ -35,6 +36,7 @@ public class SqlBatchOperateComponent<T> {
     }
 
     private void saveWithCyclicBarrier(IService<T> service, String beanName, T bean) {
+        log.info("saveWithCyclicBarrier bean:{}",new Gson().toJson(bean));
 
         SpinLock spinLock = beanRoute.getSpinLock(beanName);
         AtomicInteger atomicInteger = beanRoute.getAtomicInteger(beanName);

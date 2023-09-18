@@ -3,3 +3,6 @@ netstat -anp
 
 2、查看进程信息
 ps -ef
+
+3、设置权限
+sudo -i

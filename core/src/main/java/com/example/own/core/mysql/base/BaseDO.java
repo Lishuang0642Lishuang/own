@@ -1,7 +1,5 @@
 package com.example.own.core.mysql.base;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +21,6 @@ public class BaseDO implements Serializable {
     /**
      * 数据库记录ID
      */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
 

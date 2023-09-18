@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.keyvalue.DefaultMapEntry;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
@@ -40,7 +41,7 @@ public class SqlBatchSaveRunnable implements EnvironmentAware, InitializingBean,
             try {
                 IService<?> service = (IService<?>) defaultMapEntry.getKey();
                 List beanList = (List) defaultMapEntry.getValue();
-                log.info("beanList:{}", beanList);
+                log.info("beanListSize:{},beanList:{}", beanList.size(), beanList);
                 service.saveOrUpdateBatch(beanList);
             } catch (Exception e) {
                 log.error("batch save sql error", e);
@@ -51,13 +52,13 @@ public class SqlBatchSaveRunnable implements EnvironmentAware, InitializingBean,
     @Override
     public void afterPropertiesSet() throws Exception {
 
-//        String enable = environment.getProperty("mysql.batch.enable");
-//
-//        if (StringUtils.isNotEmpty(enable) && Boolean.parseBoolean(enable)) {
-//            Thread thread = new Thread(this, "batch-save-sql");
-//            thread.setDaemon(false);
-//            thread.start();
-//        }
+        String enable = "true";
+
+        if (StringUtils.isNotEmpty(enable) && Boolean.parseBoolean(enable)) {
+            Thread thread = new Thread(this, "batch-save-sql");
+            thread.setDaemon(false);
+            thread.start();
+        }
     }
 
     @Override

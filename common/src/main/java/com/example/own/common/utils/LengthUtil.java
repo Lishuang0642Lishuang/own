@@ -19,6 +19,12 @@ public class LengthUtil {
 
 
     public static void main(String[] args) {
+
+        String m = "AVPHwEsk2E48lMBnWleZFKKnIbJQXL6tEgdrTh1meU4bEGLS5TxgVJVBAc9oSbiZQopmXIyQkrCUobLRmz4SqOst_Sc6jg";
+        System.out.println(m.length());
+
+
+
         String a = "lkj,po";
         String[] array = a.split(",");
 

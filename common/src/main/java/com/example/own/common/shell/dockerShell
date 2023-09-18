@@ -12,6 +12,7 @@ ubuntu: 基础镜像，先在本地检查，如果本地没有，则检查远程
 /bin/bash: 在启动的容器里执行的命令
 
 2.1、docker exec -it redis-node1 /bin/bash
+执行redis命令  redis-cli
 
 3、 hostname
 检查容器的主机名
