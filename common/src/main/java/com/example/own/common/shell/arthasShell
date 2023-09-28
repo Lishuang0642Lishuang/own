@@ -1,7 +1,19 @@
-curl -O https://arthas.aliyun.com/arthas-boot.jar
+1、curl -O https://arthas.aliyun.com/arthas-boot.jar
 
-若提示curl不对，则
+2、若提示curl不对，则
 apk add curl
 curl -O https://arthas.aliyun.com/arthas-boot.jar
 
+3、##启动arthas
 java -jar arthas-boot.jar
+
+4、本地启动springboot应用，直接在cmd中用arthas
+
+5、查看方法消耗
+trace com.ecoflow.battery.message.consumer.DeviceBatteryConsumer consumeMessage
+
+6、反编译
+jad com.ecoflow.battery.message.consumer.DeviceBatteryConsumer
+
+7、查看方法的返回值
+watch com.ecoflow.battery.message.consumer.DeviceBatteryConsumer consumeMessage returnObj
