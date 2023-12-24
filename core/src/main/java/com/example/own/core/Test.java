@@ -1,6 +1,7 @@
 package com.example.own.core;
 
 import com.example.own.core.mongo.entity.RecordDO;
+import com.example.own.core.mysql.bean.UserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.apache.commons.collections.MapUtils;
@@ -11,6 +12,13 @@ import java.util.stream.Collectors;
 public class Test {
 
     public static void main(String[] args){
+
+
+        UserDO userDO = UserDO.builder().type("2").build();
+
+
+
+
 
         List<RecordDO> recordDOS = Collections.emptyList();
         List<String> strList = recordDOS.stream().map(RecordDO::getCode).collect(Collectors.toList());

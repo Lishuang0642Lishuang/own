@@ -1,0 +1,3 @@
+
+####查询连接
+netstat -an | grep ESTABLISHED | grep ":80" | wc -l

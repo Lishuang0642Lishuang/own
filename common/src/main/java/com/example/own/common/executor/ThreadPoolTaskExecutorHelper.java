@@ -1,16 +1,6 @@
 package com.example.own.common.executor;
 
-import com.alibaba.ttl.TtlRunnable;
 import com.alibaba.ttl.threadpool.TtlExecutors;
-//import com.tuya.cloud.monitor.trace.agent.EventTrace;
-//import com.tuya.cloud.monitor.trace.common.define.Field;
-//import com.tuya.cloud.monitor.trace.common.util.HostHelper;
-//import com.tuya.shendeng.endpoint.support.AppFilterHelper;
-//import com.tuya.typhoon.common.config.SlidingWindow;
-//import com.tuya.typhoon.common.config.ThreadPoolReporterConstants;
-//import com.tuya.typhoon.common.context.TyphoonContextConfig;
-//import com.tuya.typhoon.common.context.TyphoonSessionContext;
-//import com.tuya.typhoon.common.context.entity.TyphoonSdkContext;
 import com.example.own.common.constant.OwnConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.skywalking.apm.toolkit.trace.CallableWrapper;
@@ -18,7 +8,6 @@ import org.apache.skywalking.apm.toolkit.trace.RunnableWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import org.springframework.context.ApplicationContext;
 import org.springframework.core.task.AsyncListenableTaskExecutor;
 import org.springframework.core.task.TaskRejectedException;
 import org.springframework.scheduling.concurrent.ExecutorConfigurationSupport;
@@ -30,21 +19,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @desc: 1、 java.util.concurrent.FutureTask cannot be cast to com.alibaba.ttl.TtlRunnable

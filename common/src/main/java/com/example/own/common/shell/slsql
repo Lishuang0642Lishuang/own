@@ -1,0 +1,1 @@
+上下线 | select regexp_extract(message, 'clients/[^,]+') as topicDeviceSn,count(*) group by topicDeviceSn limit 1000000

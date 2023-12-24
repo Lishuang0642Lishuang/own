@@ -1,12 +1,16 @@
 package com.example.own.api.controller;
 
 import com.example.own.api.dto.QueryAppRequest;
+import com.example.own.common.annotation.FlowLimit;
+import com.example.own.common.model.WindowWrap;
 import com.example.own.common.utils.DateTimeUtils;
 import com.example.own.core.mysql.bean.AppDO;
+import com.example.own.core.redis.TimedScheduledExecutorPoolExecutor;
 import com.example.own.service.app.IAppService;
 import com.example.own.service.user.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 
 @Slf4j
 @Controller
@@ -33,31 +36,87 @@ public class AppController {
     @Resource
     IUserService userService;
 
+    @Resource
+    RedisTemplate redisTemplate;
+
+
+    private final AtomicReferenceArray<WindowWrap<Object>> arrayRef = new AtomicReferenceArray<>(2);
+
+
     @ResponseBody
-    @RequestMapping("/appList")
-    public List<AppDO> getAppList(Integer num) {
+    @GetMapping("/appList")
+//    @FlowLimit(group = "appList", maxTimes = 5, identifier = "sn")
+    public List<AppDO> getAppList(Integer num) throws ExecutionException, InterruptedException {
         log.info("getAppList:{}", "query");
+        redisTemplate.opsForValue().set("test", Boolean.FALSE);
 
-        CompletableFuture.runAsync(()-> appService.getAppList(), ownExecutor);
+
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new TimedScheduledExecutorPoolExecutor(4);
+        ScheduledFuture future = scheduledThreadPoolExecutor.scheduleWithFixedDelay(this::test ,0,1, TimeUnit.SECONDS);
 
 
-        List<AppDO> appList = appService.getAppList();
-        List<AppDO> newList = new ArrayList<>();
-        for (int i = 0; i < num; i++) {
-            newList.add(appList.get(i));
-        }
+
+
+        //延时任务关闭
+        scheduledThreadPoolExecutor.schedule(() -> future.cancel(true), 20L, TimeUnit.SECONDS);
+
+//        scheduledThreadPoolExecutor.setRemoveOnCancelPolicy(true);
+//
+//        FutureTask future = new FutureTask(this::test);
+//
+//
+//        ScheduledFuture future = scheduledThreadPoolExecutor.scheduleWithFixedDelay(this::test, 1,1, TimeUnit.SECONDS);
+//
+//        Thread.sleep(20000L);
+//        future.cancel(true);
+
+
+//
+//        SingleThreadEventExecutor executor = new SingleThreadEventExecutor() {
+//            @Override
+//            protected void run() {
+//
+//            }
+//        }
+
+
+//        ScheduledFutureTask scheduledFutureTask = new ScheduledFutureTask();
+
+//        future.cancel(false);
+
+
+
+
+//        CompletableFuture.runAsync(()-> appService.getAppList(), ownExecutor);
+//
+//
+//        List<AppDO> appList = appService.getAppList();
+//        List<AppDO> newList = new ArrayList<>();
+//        for (int i = 0; i < num; i++) {
+//            newList.add(appList.get(i));
+//        }
 
         log.info("================================================================================================");
 //        Integer zero = 0;
 //        Integer num = 1/zero;
 
-        return newList;
+//        return newList;
+        return null;
     }
 
+    public Boolean test() {
+
+
+        log.info("sdfdsf");
+
+
+        return Boolean.TRUE;
+    }
 
 
     @ResponseBody
     @RequestMapping("/static")
+    @FlowLimit(group = "getStaticResult", identifier = "queryAppRequest.id",unit = 3, maxTimes = 5)
     public String getStaticResult(QueryAppRequest queryAppRequest) {
         DateTimeUtils.parseMinuteToTime(10);
         return "hello";

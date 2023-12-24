@@ -17,4 +17,6 @@ public class UserDO extends BaseDO {
     private String sex;
 
     private String address;
+
+    private String type;
 }

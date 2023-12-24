@@ -1,3 +1,14 @@
 ##查看分支的来源
-进入代码 git bash
+1、进入代码 git bash
 git reflog --date=local | grep 当前分支名
+
+2、checkout 分支，然后进入文件浏览器  git bash
+
+git reflog show feature_third_platform_temp  就能看到哪里创建的
+
+
+
+
+
+
+
