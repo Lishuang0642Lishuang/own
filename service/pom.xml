@@ -14,6 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <ecoflow.version>1.0.0-SNAPSHOT</ecoflow.version>
     </properties>
 
     <dependencies>
@@ -24,6 +25,91 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>common</artifactId>
+        </dependency>
+
+
+        <!--app-->
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>app-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!--cms-->
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>cms-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+
+        <!-- iot-api -->
+        <dependency>
+            <groupId>com.ecoflow.iot</groupId>
+            <artifactId>iot-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!--battery-->
+        <dependency>
+            <groupId>com.ecoflow.battery</groupId>
+            <artifactId>battery-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- smart-voice-api -->
+        <dependency>
+            <groupId>com.ecoflow.iot</groupId>
+            <artifactId>smart-voice-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- service-user-api -->
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>ecoflow-service-user-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- auth-api -->
+        <dependency>
+            <groupId>com.ecoflow.iot</groupId>
+            <artifactId>auth-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- hub-api -->
+        <dependency>
+            <groupId>com.ecoflow.iot</groupId>
+            <artifactId>iot-hub-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!--devices-->
+        <dependency>
+            <groupId>com.ecoflow.iot</groupId>
+            <artifactId>devices-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- Website-api -->
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>website-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <!-- shopify-api -->
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>shopify-api</artifactId>
+            <version>${ecoflow.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ecoflow</groupId>
+            <artifactId>general-api</artifactId>
+            <version>${ecoflow.version}</version>
         </dependency>
 
 
@@ -51,6 +137,20 @@
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.15.3</version>
+        </dependency>
+
+        <!-- EasyExcel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.1.1</version> <!-- 使用最新版本 -->
         </dependency>
     </dependencies>
 
