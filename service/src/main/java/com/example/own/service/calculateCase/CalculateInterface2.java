@@ -11,7 +11,6 @@ import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +31,6 @@ public class CalculateInterface2 {
     public static void main(String[] args) throws Exception {
 
         //1、获取所有应用的应用名
-        Map<String, String> nameAddressMap = ApplicationEnum.nameAddressMap;
-
         Map<String, ApplicationEnum> nameEnumMap = ApplicationEnum.nameEnumMap;
 
         //2、对应用进行遍历
@@ -267,22 +264,12 @@ public class CalculateInterface2 {
     }
 
     /**
-     * 根据地址获取类名*
+     * 根据地址获取类名**
      * @param classFile
+     * @param applicationEnum
      * @return
-     * @throws ClassNotFoundException
-     * @throws MalformedURLException
+     * @throws Exception
      */
-    private static Class<?> getClassFromFile(File classFile)
-            throws Exception {
-
-        int idx = classFile.getPath().indexOf("com");
-        String className = classFile.getPath().substring(idx, classFile.getPath().length() - 6).replace("\\",".");
-
-        DynamicClassLoader classLoader = new DynamicClassLoader(ClassLoader.getSystemClassLoader());
-        return classLoader.loadClassFromFile(className, classFile.getPath());
-    }
-
     private static Class<?> getClassFromFile2(File classFile, ApplicationEnum applicationEnum)
             throws Exception {
 
