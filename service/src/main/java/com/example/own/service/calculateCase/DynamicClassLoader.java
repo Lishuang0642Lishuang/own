@@ -24,6 +24,7 @@ public class DynamicClassLoader extends ClassLoader{
     @Override
     protected Class<?> findClass(String className) throws ClassNotFoundException {
         try {
+            log.info("DynamicClassLoader_findClass_className:{}", className);
             byte[] classBytes = loadClassBytes(className);
             return defineClass(className, classBytes, 0, classBytes.length);
         } catch (IOException e) {
@@ -32,6 +33,7 @@ public class DynamicClassLoader extends ClassLoader{
     }
 
     private byte[] loadClassBytes(String className) throws IOException {
+        log.info("DynamicClassLoader_loadClassBytes_className:{}", className);
         Path classFilePath = Paths.get(classPath, className.replace('.', '/') + ".class");
         return Files.readAllBytes(classFilePath);
     }
