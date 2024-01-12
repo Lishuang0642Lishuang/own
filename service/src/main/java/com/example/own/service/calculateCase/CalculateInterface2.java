@@ -235,7 +235,6 @@ public class CalculateInterface2 {
         List<Class<?>> classList = new ArrayList<>();
         for (File file : fileList) {
             try {
-                log.info("文件名称：{}", file.getName());
                 Class<?> clazz = getClassFromFile2(file, applicationEnum);
                 classList.add(clazz);
             } catch (ClassNotFoundException e) {
