@@ -1,0 +1,23 @@
+
+#####安装及拷贝配置
+cd /tmp
+wget https://www.emqx.com/zh/downloads/broker/5.3.0/emqx-5.3.0-ubuntu20.04-amd64.tar.gz
+cd /data
+mkdir -p emqx530
+tar -zxvf /tmp/emqx-5.3.0-ubuntu20.04-amd64.tar.gz -C emqx530
+cd emqx530
+cp  /home/ef_root/emqx.conf ./etc/
+cp /home/ef_root/acl.conf ./etc/
+cp -r /home/ef_root/certs/ ./etc/
+
+加入集群
+./emqx_ctl cluster join emqx04@10.10.13.45
+
+查询集群状态
+./emqx_ctl cluster status
+
+离开集群
+./emqx_ctl cluster leave
+
+在集群中的a节点，移除b节点
+./emqx_ctl cluster force-leave emqx06@10.10.13.56

@@ -1,7 +1,6 @@
 package com.example.own.server.serializer;
 
-import com.example.own.server.bean.LoginRequestPacket;
-import com.example.own.server.bean.Packet;
+import com.example.own.server.bean.*;
 import com.example.own.server.serializer.impl.JSONSerializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
@@ -9,7 +8,7 @@ import io.netty.buffer.ByteBufAllocator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.own.server.bean.Command.LOGIN_REQUEST;
+import static com.example.own.server.bean.Command.*;
 
 public class PacketCodec {
 
@@ -18,12 +17,12 @@ public class PacketCodec {
     private final Map<Byte, Class<? extends Packet>> packetTypeMap;
     private final Map<Byte, Serializer> serializerMap;
 
-    private PacketCodec() {
+    public PacketCodec() {
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(LOGIN_REQUEST, LoginRequestPacket.class);
-//        packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
-//        packetTypeMap.put(MESSAGE_REQUEST, MessageRequestPacket.class);
-//        packetTypeMap.put(MESSAGE_RESPONSE, MessageResponsePacket.class);
+        packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
+        packetTypeMap.put(MESSAGE_REQUEST, MessageRequestPacket.class);
+        packetTypeMap.put(MESSAGE_RESPONSE, MessageResponsePacket.class);
 //        packetTypeMap.put(LOGOUT_REQUEST, LogoutRequestPacket.class);
 //        packetTypeMap.put(LOGOUT_RESPONSE, LogoutResponsePacket.class);
 //        packetTypeMap.put(CREATE_GROUP_REQUEST, CreateGroupRequestPacket.class);

@@ -1,3 +1,20 @@
 
 ####查询连接
 netstat -an | grep ESTABLISHED | grep ":80" | wc -l
+
+
+
+查询nginx状态
+sudo systemctl status nginx
+
+
+进入nginx命令
+cd /usr/local/nginx/sbin
+./nginx      --启动
+./nginx -s stop --停止
+./nginx -s reload --重启
+ps -ef |grep nginx  --查看nginx的状态
+
+
+netstat -an | grep 1883 | wc -l
+netstat -an | grep 10.10.13.57:1883 |wc -l   ##反向代理的内容

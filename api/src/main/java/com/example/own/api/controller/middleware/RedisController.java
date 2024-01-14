@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -36,6 +37,9 @@ public class RedisController {
     @PostMapping("/setCache")
     public void setCache(String key, String value) {
 
-        redisClient.setValue(key, value);
+        Long timeMills = System.currentTimeMillis();
+
+        redisClient.setValue("key" + timeMills, timeMills, 50L, TimeUnit.SECONDS);
+        redisClient.setSet("set", "key" + timeMills);
     }
 }

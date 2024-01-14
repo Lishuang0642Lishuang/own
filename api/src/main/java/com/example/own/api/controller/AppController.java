@@ -44,6 +44,18 @@ public class AppController {
 
 
     @ResponseBody
+    @PostMapping("testRedis")
+    public void testRedis() {
+
+        Long timeMills = System.currentTimeMillis();
+
+        redisTemplate.opsForValue().set(timeMills,timeMills, 60L, TimeUnit.SECONDS);
+        redisTemplate.opsForSet().add("testSet",timeMills);
+    }
+
+
+
+    @ResponseBody
     @GetMapping("/appList")
 //    @FlowLimit(group = "appList", maxTimes = 5, identifier = "sn")
     public List<AppDO> getAppList(Integer num) throws ExecutionException, InterruptedException {

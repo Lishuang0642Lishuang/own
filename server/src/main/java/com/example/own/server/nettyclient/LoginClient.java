@@ -2,6 +2,7 @@ package com.example.own.server.nettyclient;
 
 import com.example.own.server.handler.ClientHandler;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -24,11 +25,14 @@ public class LoginClient {
             }
         });
 
+
+        Channel channel = bootstrap.connect("127.0.0.1", 8000).channel();
+
     }
 
 
     public void channelActive(ChannelHandlerContext ctx) {
-        System.out.println(new Date() + ": 客户端开始登录");
+        System.out.println(new Date() + ": 客户端开始登录loginClient");
 
     }
 }
