@@ -7,6 +7,9 @@ java -jar arthas-boot.jar
 3、##启动arthas
 java -jar arthas-boot.jar
 
+3.1、重进入arthas
+telnet localhost 3658
+
 4、本地启动springboot应用，直接在cmd中用arthas
 
 5、查看方法消耗
